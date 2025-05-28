@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Zone Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Time Zone Converter</h1>
+
+  <!-- Digital clocks for quick reference -->
+  <div class="clocks">
+    <div class="clock" data-tz="UTC">
+      <h3>UTC</h3>
+      <span class="time"></span>
+    </div>
+    <div class="clock" data-tz="America/New_York">
+      <h3>New York</h3>
+      <span class="time"></span>
+    </div>
+    <div class="clock" data-tz="Europe/London">
+      <h3>London</h3>
+      <span class="time"></span>
+    </div>
+    <div class="clock" data-tz="Asia/Tokyo">
+      <h3>Tokyo</h3>
+      <span class="time"></span>
+    </div>
+  </div>
+
+  <!-- Converter form -->
+  <form id="converter">
+    <label>
+      Your Time:
+      <input type="datetime-local" id="yourTime" />
+    </label>
+
+    <label>
+      Their Location:
+      <input list="zones" id="theirLocation" placeholder="Start typing city or zone" />
+      <datalist id="zones"></datalist>
+    </label>
+  </form>
+
+  <div class="result">
+    <p><strong>Your Time:</strong> <span id="yourTimeDisplay"></span></p>
+    <p><strong>Their Time:</strong> <span id="theirTimeDisplay"></span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
