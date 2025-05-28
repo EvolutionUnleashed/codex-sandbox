@@ -30,9 +30,9 @@ h1 {
 
 .clock h3 {
   margin: 0 0 10px;
-  
   font-size: 1rem;
-  
+}
+
 /* --- 2025 visual enhancements --- */
 
 /* Floating effect for clocks */
@@ -75,8 +75,6 @@ body {
   background: linear-gradient(135deg, #eef2f7 0%, #f9fbfc 100%);
 }
 
-}
-
 .clock .time {
   font-size: 1.2rem;
   font-weight: bold;
@@ -95,6 +93,16 @@ form#converter label {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+}
+
+.toggle-btn {
+  align-self: center;
+  padding: 8px 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 form#converter input {
@@ -146,6 +154,9 @@ form#converter input {
   margin-top: 30px;
   font-size: 0.95rem;
   color: #555;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .patreon a {
