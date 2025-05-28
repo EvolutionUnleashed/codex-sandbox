@@ -1,7 +1,10 @@
-// script.js
+// script.js (Luxon-based)
 (function () {
+  const { DateTime } = luxon;
+
   const yourTimeInput = document.getElementById('yourTime');
   const theirLocationInput = document.getElementById('theirLocation');
+  const directionSelect = document.getElementById('direction');
   const zonesList = document.getElementById('zones');
   const yourTimeDisplay = document.getElementById('yourTimeDisplay');
   const theirTimeDisplay = document.getElementById('theirTimeDisplay');
@@ -20,7 +23,8 @@
     'Asia/Tokyo',
     'Asia/Shanghai',
     'Asia/Kolkata',
-    'Australia/Sydney'
+    'Australia/Sydney',
+    'Australia/Brisbane'
   ];
 
   timeZones.forEach(tz => {
@@ -29,61 +33,44 @@
     zonesList.appendChild(option);
   });
 
-  // Set default date-time to now (rounded to nearest minute)
-  const now = new Date();
-  now.setSeconds(0, 0);
-  yourTimeInput.value = now.toISOString().slice(0, 16);
+  // Default your time input to now (rounded to minute)
+  const now = DateTime.local().startOf('minute');
+  yourTimeInput.value = now.toISO({ suppressSeconds: true, includeOffset: false });
 
   function updateResult() {
-    const yourDate = new Date(yourTimeInput.value);
-    if (isNaN(yourDate)) return;
+    const yourZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const theirZone = theirLocationInput.value || 'UTC';
+    const direction = directionSelect.value;
 
-    const yourFormatted = yourDate.toLocaleString(undefined, {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
+    let baseDT;
 
-    yourTimeDisplay.textContent = yourFormatted;
-
-    const theirZone = theirLocationInput.value || Intl.DateTimeFormat().resolvedOptions().timeZone;
-    try {
-      const theirFormatted = yourDate.toLocaleString(undefined, {
-        timeZone: theirZone,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-      theirTimeDisplay.textContent = theirFormatted;
-    } catch (e) {
-      theirTimeDisplay.textContent = 'Invalid time zone';
+    if (direction === 'yourToTheir') {
+      baseDT = DateTime.fromISO(yourTimeInput.value, { zone: yourZone });
+      yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+      theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+    } else {
+      // theirToYour
+      baseDT = DateTime.fromISO(yourTimeInput.value, { zone: theirZone });
+      theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+      yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
     }
   }
 
-  yourTimeInput.addEventListener('input', updateResult);
-  theirLocationInput.addEventListener('input', updateResult);
-
-  updateResult();
-
-  // Update digital clocks
+  // Update clocks
   function updateClocks() {
-    const now = new Date();
+    const now = DateTime.local();
     clockEls.forEach(el => {
       const tz = el.dataset.tz;
-      el.querySelector('.time').textContent = now.toLocaleTimeString(undefined, {
-        timeZone: tz,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
+      el.querySelector('.time').textContent = now.setZone(tz).toLocaleString(DateTime.TIME_WITH_SECONDS);
     });
   }
+
+  // Event listeners
+  yourTimeInput.addEventListener('input', updateResult);
+  theirLocationInput.addEventListener('input', updateResult);
+  directionSelect.addEventListener('change', updateResult);
+
+  updateResult();
   updateClocks();
   setInterval(updateClocks, 1000);
 })();
