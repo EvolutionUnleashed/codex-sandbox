@@ -36,26 +36,19 @@
       <input type="datetime-local" id="yourTime">
     </label>
 
-    <button type="button" id="toggleDirection" class="toggle-btn" aria-label="Swap conversion">⇄</button>
-    <select id="direction" style="display:none">
-      <option value="yourToTheir">Your → Their</option>
-      <option value="theirToYour">Their → Your</option>
-    </select>
+    <button type="button" id="toggleDirection" class="togg<button id="toggle-btn" aria-label="Swap conversion">⇄</button>
 
-<label id="locationLabel">
-    <span id="locationLabelText">Their Location:</span>
-    <input list="zones" id="theirLocation" placeholder="Start typing city or zone">
-    <datalist id="zones"></datalist>
-</label>
-</form>
-  <div class="result">
-    <div class="card"><strong id="leftLabel">Your Time:</strong> <span id="yourTimeDisplay"></span></div>
-    <div class="card"><strong id="rightLabel">Their Time:</strong> <span id="theirTimeDisplay"></span></div>
-  </div>
+<select id="direction" style="display:none">
+    <option value="yourToTheir">Your → Their</option>
+    <option value="theirToYour">Their → Your</option>
+</select>
 
-<p class="patreon card">If you find this simple tool helpful, feel free to support us on <a href="https://www.patreon.com/evolutionunleashedai" target="_blank">Patreon</a>!</p>=
+<div class="result">
+    <strong><span id="yourTimeDisplay"></span></strong>
+    <strong><span id="theirTimeDisplay"></span></strong>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+<p class="patreon card">If you find this simple tool helpful, feel free to support us on <a href="https://www.patreon.com/evolutionunleashedai" target="_blank">Patreon</a>!</p>
+
+<script src="global/luxon.min.js"></script>
+<script src="script.js"></script>
