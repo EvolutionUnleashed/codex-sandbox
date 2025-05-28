@@ -113,3 +113,14 @@ form#converter input {
 .result p {
   margin: 8px 0;
 }
+
+/* Hover scaling fix */
+.result p,
+.result p strong {
+  transition: transform 0.3s ease;
+}
+
+.result p:hover,
+.result p:hover strong {
+  transform: scale(1.15);
+}
