@@ -155,6 +155,9 @@ form#converter input {
   margin-top: 30px;
   font-size: 0.95rem;
   color: #555;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .patreon a {
