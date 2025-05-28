@@ -14,8 +14,7 @@
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
   const timeLabelText = document.getElementById('timeLabelText');
-  const locationLabelText = document.getElementById('locationLabelText');
-
+const locationLabelText = document.getElementById('locationLabelText');> main
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
     'America/New_York',
     'America/Chicago',
@@ -51,20 +50,21 @@
     if (direction === 'yourToTheir') {
       // Update UI labels
       timeLabelText.textContent = 'Your Time:';
-      locationLabelText.textContent = 'Their Location:';
-      leftLabel.textContent = 'Your Time:';
+timeLabelText.textContent = 'Your Time:';
+locationLabelText.textContent = 'Their Location:';
+leftLabel.textContnt = 'Your Time:';
       rightLabel.textContent = 'Their Time:';
-
       baseDT = DateTime.fromISO(yourTimeInput.value, { zone: yourZone });
       yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
       theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
     } else {
       // Update UI labels
       timeLabelText.textContent = 'Their Time:';
-      locationLabelText.textContent = 'Your Location:';
-      leftLabel.textContent = 'Their Time:';
-      rightLabel.textContent = 'Your Time:';
-
+timeLabelText.textContent = 'Their Time:';
+locationLabelText.textContent = 'Your Location:';
+leftLabel.textContent = 'Their Time:';
+rightLabel.textContent = 'Your Time:';
+ 
       baseDT = DateTime.fromISO(yourTimeInput.value, { zone: theirZone });
       theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
       yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
@@ -82,20 +82,20 @@
 
   // Toggle direction with button
   toggleButton.addEventListener('click', () => {
-    const newDirection = directionSelect.value === 'yourToTheir' ? 'theirToYour' : 'yourToTheir';
-    directionSelect.value = newDirection;
+const newDirection = directionSelect.value === 'yourToTheir' ? 'theirToYour' : 'yourToTheir';
+directionSelect.value = newDirection;<
+// Reset fields when toggling
+const now = DateTime.local().startOf('minute');
+yourTimeInput.value = now.toISO({ suppressSeconds: true, includeOffset: false });
 
-    // Reset fields when toggling
-    const now = DateTime.local().startOf('minute');
-    yourTimeInput.value = now.toISO({ suppressSeconds: true, includeOffset: false });
-
-    if (newDirection === 'theirToYour') {
-      theirLocationInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    } else {
+if (newDirection === 'theirToYour') {
+    theirLocationInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+}    } else {
       theirLocationInput.value = '';
     }
 
     updateResult();
+
   });
 
   // Event listeners

@@ -75,15 +75,11 @@ body {
   background: linear-gradient(135deg, #eef2f7 0%, #f9fbfc 100%);
 }
 
-.clock .time {
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: monospace;
-  letter-spacing: 1px;
-}
 
-form#converter {
-  display: flex;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;.cloc  display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -151,6 +147,7 @@ form#converter input {
 
 /* Patreon footer */
 .patreon {
+
   max-width: 600px;
   margin: 30px auto 0;
   text-align: center;
@@ -160,13 +157,9 @@ form#converter input {
   padding: 12px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.patreon a {
-  color: #e85a4f;
-  font-weight: bold;
-  text-decoration: none;
-}
+
 
 .patreon a:hover {
   text-decoration: underline;
