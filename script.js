@@ -11,6 +11,9 @@
   const clockEls = document.querySelectorAll('.clock');
 
   // Populate datalist with time zones
+    const timeInputLabel = document.getElementById('timeInputLabel');
+  const leftLabel = document.getElementById('leftLabel');
+  const rightLabel = document.getElementById('rightLabel');
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
     'UTC',
     'America/New_York',
@@ -44,17 +47,25 @@
 
     let baseDT;
 
-    if (direction === 'yourToTheir') {
-      baseDT = DateTime.fromISO(yourTimeInput.value, { zone: yourZone });
-      yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-      theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-    } else {
-      // theirToYour
-      baseDT = DateTime.fromISO(yourTimeInput.value, { zone: theirZone });
-      theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-      yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-    }
-  }
+      if (direction === 'yourToTheir'yourToTheir') {
+    // Update UI labels
+    timeInputLabel.childNodes[0].nodeValue = 'Your Time: ';
+    leftLabel.textContent = 'Your Time:';
+    rightLabel.textContent = 'Their Time:';
+
+    baseDT = DateTime.fromISO(yourTimeInput.value, { zone: yourZone });
+    yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+    theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  } else {
+    // Update UI labels
+    timeInputLabel.childNodes[0].nodeValue = 'Their Time: ';
+    leftLabel.textContent = 'Their Time:';
+    rightLabel.textContent = 'Your Time:';
+
+    baseDT = DateTime.fromISO(yourTimeInput.value, { zone: theirZone });
+    theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+    yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  }}
 
   // Update clocks
   function updateClocks() {
