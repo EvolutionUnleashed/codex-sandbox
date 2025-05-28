@@ -42,19 +42,18 @@
       <option value="theirToYour">Their → Your</option>
     </select>
 
-    <label>
-      Their Location:
-      <input list="zones" id="theirLocation" placeholder="Start typing city or zone">
-      <datalist id="zones"></datalist>
-    </label>
-  </form>
-
+<label id="locationLabel">
+    <span id="locationLabelText">Their Location:</span>
+    <input list="zones" id="theirLocation" placeholder="Start typing city or zone">
+    <datalist id="zones"></datalist>
+</label>
+</form>
   <div class="result">
     <div class="card"><strong id="leftLabel">Your Time:</strong> <span id="yourTimeDisplay"></span></div>
     <div class="card"><strong id="rightLabel">Their Time:</strong> <span id="theirTimeDisplay"></span></div>
   </div>
 
-<p class="patreon card">If you find this simple tool helpful, feel free to support us on <a href="https://www.patreon.com/evolutionunleashedai" target="_blank">Patreon</a>!</p>> main
+<p class="patreon card">If you find this simple tool helpful, feel free to support us on <a href="https://www.patreon.com/evolutionunleashedai" target="_blank">Patreon</a>!</p>=
 
   <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
   <script src="script.js"></script>

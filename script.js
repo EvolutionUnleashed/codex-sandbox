@@ -14,7 +14,7 @@
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
   const timeLabelText = document.getElementById('timeLabelText');
-
+<const locationLabelText = document.getElementById('locationLabelText');
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
     'America/New_York',
     'America/Chicago',
@@ -50,9 +50,9 @@
     if (direction === 'yourToTheir') {
       // Update UI labels
       timeLabelText.textContent = 'Your Time:';
-      leftLabel.textContent = 'Your Time:';
-      rightLabel.textContent = 'Their Time:';
-
+    
+rightLabel.textContent = 'Their Time:';
+locationLabelText.textContent = 'Their Location:';
       baseDT = DateTime.fromISO(yourTimeInput.value, { zone: yourZone });
       yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
       theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
@@ -61,7 +61,7 @@
       timeLabelText.textContent = 'Their Time:';
       leftLabel.textContent = 'Their Time:';
       rightLabel.textContent = 'Your Time:';
-
+locationLabelText.textContent = 'Your Location:';
       baseDT = DateTime.fromISO(yourTimeInput.value, { zone: theirZone });
       theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
       yourTimeDisplay.textContent = baseDT.setZone(yourZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
@@ -79,8 +79,12 @@
 
   // Toggle direction with button
   toggleButton.addEventListener('click', () => {
-    directionSelect.value = directionSelect.value === 'yourToTheir' ? 'theirToYour' : 'yourToTheir';
-    updateResult();
+const newDirection = directionSelect.value === 'yourToTheir' ? 'theirToYour' : 'yourToTheir';
+directionSelect.value = newDirection;
+if (newDirection === 'theirToYour') {
+    theirLocationInput.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+yourTimeInput.value = DateTime.local().startOf('minute').toISO({ suppressSeconds: true, includeOffset: false });
   });
 
   // Event listeners
