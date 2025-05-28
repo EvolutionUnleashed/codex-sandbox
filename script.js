@@ -14,7 +14,7 @@
     const timeInputLabel = document.getElementById('timeInputLabel');
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
-     const timeLabelText = document.getElementById('timeLelText');'',
+const timeLabelText = document.getElementById('timeLabelText');
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
    
 
