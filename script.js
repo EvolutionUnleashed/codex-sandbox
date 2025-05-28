@@ -6,17 +6,21 @@
   const theirLocationInput = document.getElementById('theirLocation');
   const directionSelect = document.getElementById('direction');
   const toggleButton = document.getElementById('toggleDirection');
+ 2irrju-codex/fix-toggle-behavior-and-clock-display
   const toggleClocksButton = document.getElementById('toggleClocks');
+
   const zonesList = document.getElementById('zones');
   const yourTimeDisplay = document.getElementById('yourTimeDisplay');
   const theirTimeDisplay = document.getElementById('theirTimeDisplay');
   const clockEls = document.querySelectorAll('.clock');
 
+ 2irrju-codex/fix-toggle-behavior-and-clock-display
   let showAnalog = false;
 
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
   const timeLabelText = document.getElementById('timeLabelText');
+
 
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
     'America/New_York',
@@ -53,6 +57,7 @@
     if (direction === 'yourToTheir') {
       // Update UI labels
       timeLabelText.textContent = 'Your Time:';
+2irrju-codex/fix-toggle-behavior-and-clock-display
       leftLabel.textContent = 'Your Time:';
       rightLabel.textContent = 'Their Time:';
 
@@ -62,6 +67,7 @@
     } else {
       // Update UI labels
       timeLabelText.textContent = 'Their Time:';
+2irrju-codex/fix-toggle-behavior-and-clock-display
       leftLabel.textContent = 'Their Time:';
       rightLabel.textContent = 'Your Time:';
 
@@ -85,6 +91,7 @@
     });
   }
 
+2irrju-codex/fix-toggle-behavior-and-clock-display
   function drawAnalog(canvas, dt) {
     const ctx = canvas.getContext('2d');
     const r = canvas.width / 2;
@@ -159,6 +166,7 @@
     });
     toggleClocksButton.textContent = showAnalog ? 'Show Digital' : 'Show Analog';
     updateClocks();
+
   });
 
   // Event listeners

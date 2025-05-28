@@ -75,6 +75,7 @@ body {
   background: linear-gradient(135deg, #eef2f7 0%, #f9fbfc 100%);
 }
 
+2irrju-codex/fix-toggle-behavior-and-clock-display
 .clock .time {
   font-size: 1.2rem;
   font-weight: bold;
@@ -88,6 +89,7 @@ body {
 
 form#converter {
   display: flex;
+
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -110,6 +112,7 @@ form#converter label {
   border-radius: 4px;
 }
 
+2irrju-codex/fix-toggle-behavior-and-clock-display
 .toggle-btn.small {
   font-size: 1rem;
   padding: 4px 8px;
@@ -162,22 +165,24 @@ form#converter input {
 
 /* Patreon footer */
 .patreon {
+
+  max-width: 600px;
+  margin: 30px auto 0;
   text-align: center;
+2irrju-codex/fix-toggle-behavior-and-clock-display
   margin: 30px auto;
+
   font-size: 0.95rem;
   color: #555;
   background: #fff;
   padding: 12px 20px;
+2irrju-codex/fix-toggle-behavior-and-clock-display
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: fit-content;
 }
 
-.patreon a {
-  color: #e85a4f;
-  font-weight: bold;
-  text-decoration: none;
-}
+
 
 .patreon a:hover {
   text-decoration: underline;
