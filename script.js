@@ -14,7 +14,7 @@
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
   const timeLabelText = document.getElementById('timeLabelText');
-<const locationLabelText = document.getElementById('locationLabelText');
+  const locationLabelText = document.getElementById('locationLabelText');
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
     'America/New_York',
     'America/Chicago',
