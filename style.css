@@ -30,9 +30,9 @@ h1 {
 
 .clock h3 {
   margin: 0 0 10px;
-  
   font-size: 1rem;
-  
+}
+
 /* --- 2025 visual enhancements --- */
 
 /* Floating effect for clocks */
@@ -75,12 +75,15 @@ body {
   background: linear-gradient(135deg, #eef2f7 0%, #f9fbfc 100%);
 }
 
-}
-
 .clock .time {
   font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.clock canvas {
+  display: block;
+  margin: 0 auto;
 }
 
 form#converter {
@@ -95,6 +98,23 @@ form#converter label {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+}
+
+.toggle-btn {
+  align-self: center;
+  padding: 8px 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.toggle-btn.small {
+  font-size: 1rem;
+  padding: 4px 8px;
+  margin: 0 auto 20px;
+  display: block;
 }
 
 form#converter input {
@@ -143,9 +163,14 @@ form#converter input {
 /* Patreon footer */
 .patreon {
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto;
   font-size: 0.95rem;
   color: #555;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
 }
 
 .patreon a {
