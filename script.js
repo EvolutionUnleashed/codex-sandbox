@@ -14,8 +14,10 @@
     const timeInputLabel = document.getElementById('timeInputLabel');
   const leftLabel = document.getElementById('leftLabel');
   const rightLabel = document.getElementById('rightLabel');
+     const timeLabelText = document.getElementById('timeLelText');'',
   const timeZones = (Intl.supportedValuesOf && Intl.supportedValuesOf('timeZone')) || [
-    'UTC',
+   
+
     'America/New_York',
     'America/Chicago',
     'America/Denver',
@@ -49,7 +51,7 @@
 
       if (direction === 'yourToTheir'yourToTheir') {
     // Update UI labels
-    timeInputLabel.childNodes[0].nodeValue = 'Your Time: ';
+   timeLabelText.textContent = 'Your Time:';
     leftLabel.textContent = 'Your Time:';
     rightLabel.textContent = 'Their Time:';
 
@@ -58,7 +60,7 @@
     theirTimeDisplay.textContent = baseDT.setZone(theirZone).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   } else {
     // Update UI labels
-    timeInputLabel.childNodes[0].nodeValue = 'Their Time: ';
+timeLabelText.textContent = 'Their Time:';
     leftLabel.textContent = 'Their Time:';
     rightLabel.textContent = 'Your Time:';
 
