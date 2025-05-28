@@ -30,7 +30,51 @@ h1 {
 
 .clock h3 {
   margin: 0 0 10px;
+  
   font-size: 1rem;
+  
+/* --- 2025 visual enhancements --- */
+
+/* Floating effect for clocks */
+.clock {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clock:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Framed results with hover scaling */
+.result p {
+  background: #ffffff;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.result p:hover {
+  transform: scale(1.15);
+}
+
+/* Smooth focus states for inputs */
+form#converter input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form#converter input:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+  outline: none;
+}
+
+/* Updated background for a fresh 2025 look */
+body {
+  background: linear-gradient(135deg, #eef2f7 0%, #f9fbfc 100%);
+}
+
 }
 
 .clock .time {
