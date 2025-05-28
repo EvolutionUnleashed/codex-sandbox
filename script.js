@@ -6,15 +6,12 @@
   const theirLocationInput = document.getElementById('theirLocation');
   const directionSelect = document.getElementById('direction');
   const toggleButton = document.getElementById('toggleDirection');
- 2irrju-codex/fix-toggle-behavior-and-clock-display
   const toggleClocksButton = document.getElementById('toggleClocks');
 
   const zonesList = document.getElementById('zones');
   const yourTimeDisplay = document.getElementById('yourTimeDisplay');
   const theirTimeDisplay = document.getElementById('theirTimeDisplay');
   const clockEls = document.querySelectorAll('.clock');
-
- 2irrju-codex/fix-toggle-behavior-and-clock-display
   let showAnalog = false;
 
   const leftLabel = document.getElementById('leftLabel');
@@ -69,7 +66,6 @@
     } else {
       // Update UI labels
       timeLabelText.textContent = 'Their Time:';
-2irrju-codex/fix-toggle-behavior-and-clock-display
       leftLabel.textContent = 'Their Time:';
       rightLabel.textContent = 'Your Time:';
 
@@ -93,7 +89,6 @@
     });
   }
 
-2irrju-codex/fix-toggle-behavior-and-clock-display
   function drawAnalog(canvas, dt) {
     const ctx = canvas.getContext('2d');
     const r = canvas.width / 2;
